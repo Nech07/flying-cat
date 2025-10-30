@@ -7,8 +7,8 @@ author:
   email: 
 language: en-US
 timezone: America/New_York
-url: ""
-baseurl: ""
+url: "https://nech07.github.io"
+baseurl: "/flying-cat"
 permalink: "/:year/:month/:day/:title/"
 markdown: kramdown
 kramdown:
@@ -42,6 +42,6 @@ exclude:
   - vendor
 nav_links:
   - title: Home
-    url: /
+    url: /flying-cat
   - title: About
     url: /about/
