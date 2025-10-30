@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.language | default: 'en' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ page.excerpt | strip_html | strip_newlines | truncate: 160, '' | default: site.description }}">
+  {% seo %}
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="site-title" href="{{ '/' | relative_url }}">{{ site.short_title | default: site.title }}</a>
+      {% if site.subtitle %}<p class="site-subtitle">{{ site.subtitle }}</p>{% endif %}
+      {% if site.nav_links %}
+      <nav class="site-nav" aria-label="Primary navigation">
+        <ul>
+          {% for link in site.nav_links %}
+          <li>
+            <a href="{{ link.url | relative_url }}" {% if page.url == link.url or page.permalink == link.url %}class="active"{% endif %}>{{ link.title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </nav>
+      {% endif %}
+    </div>
+  </header>
+  <main class="site-content container">
+    {{ content }}
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; {{ site.time | date: '%Y' }} {{ site.author.name | default: site.title }}. Built with Jekyll &amp; GitHub Pages.</p>
+    </div>
+  </footer>
+</body>
+</html>

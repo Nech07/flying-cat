@@ -1,0 +1,47 @@
+title: Paper Notes
+short_title: Papers
+subtitle: Summaries and takeaways from research papers I read.
+description: A GitHub Pages blog for digestible reading notes, key ideas, and implementation sketches from papers.
+author:
+  name: nech
+  email: 
+language: en-US
+timezone: America/New_York
+url: https://<username>.github.io
+baseurl: "/blog"
+permalink: "/:year/:month/:day/:title/"
+markdown: kramdown
+kramdown:
+  input: GFM
+plugins:
+  - jekyll-seo-tag
+collections:
+  posts:
+    output: true
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: paper
+      show_meta: true
+      toc: true
+      nav_back: true
+  - scope:
+      path: "assets/css"
+    values:
+      sitemap: false
+exclude:
+  - README.md
+  - scripts
+  - node_modules
+  - vendor
+nav_links:
+  - title: Home
+    url: /
+  - title: About
+    url: /about/

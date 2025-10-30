@@ -1,0 +1,68 @@
+---
+layout: default
+---
+<article class="post">
+  <header class="post-header">
+    <h1>{{ page.title }}</h1>
+    <p class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
+      {% if page.read_time %} &middot; {{ page.read_time }} min read{% endif %}
+    </p>
+    <div class="paper-summary">
+      {% if page.paper_title %}
+      <p><span>Paper:</span> {{ page.paper_title }}</p>
+      {% endif %}
+      {% if page.paper_authors %}
+      <p><span>Authors:</span> {{ page.paper_authors }}</p>
+      {% endif %}
+      {% if page.paper_venue or page.paper_year %}
+      <p><span>Venue:</span>
+        {% if page.paper_venue %}{{ page.paper_venue }}{% endif %}
+        {% if page.paper_year %} ({{ page.paper_year }}){% endif %}
+      </p>
+      {% endif %}
+      {% assign links = '' | split: ',' %}
+      {% if page.paper_link %}
+        {% assign links = links | push: '<a href="' | append: page.paper_link | append: '">Paper</a>' %}
+      {% endif %}
+      {% if page.paper_pdf %}
+        {% assign links = links | push: '<a href="' | append: page.paper_pdf | append: '">PDF</a>' %}
+      {% endif %}
+      {% if page.paper_code %}
+        {% assign links = links | push: '<a href="' | append: page.paper_code | append: '">Code</a>' %}
+      {% endif %}
+      {% if links.size > 0 %}
+      <p><span>Links:</span> {{ links | join: ' &middot; ' }}</p>
+      {% endif %}
+      {% if page.paper_tags %}
+      <p class="paper-tags"><span>Tags:</span>
+        {% for tag in page.paper_tags %}
+        <span class="tag">{{ tag }}</span>
+        {% endfor %}
+      </p>
+      {% endif %}
+    </div>
+  </header>
+
+  {% if page.key_takeaways %}
+  <section class="callout">
+    <h2>Key Takeaways</h2>
+    {{ page.key_takeaways | markdownify }}
+  </section>
+  {% endif %}
+
+  <section class="post-content">
+    {{ content }}
+  </section>
+
+  {% if page.further_reading %}
+  <section class="post-footer">
+    <h2>Further Reading</h2>
+    {{ page.further_reading | markdownify }}
+  </section>
+  {% endif %}
+</article>
+
+{% if page.nav_back %}
+<p class="nav-back"><a href="{{ '/' | relative_url }}">&larr; Back to all notes</a></p>
+{% endif %}
