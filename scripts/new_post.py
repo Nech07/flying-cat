@@ -38,11 +38,6 @@ def parse_args() -> argparse.Namespace:
         "--date",
         help="Publish date in YYYY-MM-DD (defaults to today)",
     )
-    parser.add_argument(
-        "--read-time",
-        type=int,
-        help="Estimated reading time in minutes",
-    )
     return parser.parse_args()
 
 
@@ -53,33 +48,32 @@ def format_tags(raw: str | None) -> list[str]:
 
 
 def build_front_matter(args: argparse.Namespace, date: dt.date, slug: str) -> str:
+    def quote(value: str) -> str:
+        escaped = value.replace('"', r"\"")
+        return f'"{escaped}"'
+
+    def value_or_default(raw: str | None, default: str) -> str:
+        return raw.strip() if raw else default
+
     lines = ["---"]
-    lines.append(f'title: "{args.title}"')
-    if args.paper_title:
-        lines.append(f'paper_title: "{args.paper_title}"')
-    if args.authors:
-        lines.append(f'paper_authors: "{args.authors}"')
-    if args.venue:
-        lines.append(f'paper_venue: "{args.venue}"')
-    if args.year:
-        lines.append(f"paper_year: {args.year}")
-    if args.paper_link:
-        lines.append(f"paper_link: {args.paper_link}")
+    lines.append(f'title: {quote(args.title)}')
+    lines.append(f'paper_title: {quote(value_or_default(args.paper_title, args.title))}')
+    lines.append(f'paper_authors: {quote(value_or_default(args.authors, "TODO"))}')
+    lines.append(f'paper_venue: {quote(value_or_default(args.venue, "TODO"))}')
+    year_value = args.year if args.year else f"{date.year}"
+    lines.append(f"paper_year: {year_value}")
+    lines.append(f'paper_link: {quote(value_or_default(args.paper_link, "https://"))}')
     if args.paper_pdf:
-        lines.append(f"paper_pdf: {args.paper_pdf}")
-    if args.paper_code:
-        lines.append(f"paper_code: {args.paper_code}")
+        lines.append(f'paper_pdf: {quote(value_or_default(args.paper_pdf, "https://"))}')
+    lines.append(f'paper_code: {quote(value_or_default(args.paper_code, "https://"))}')
     tags = format_tags(args.tags)
     if tags:
         lines.append("paper_tags:")
         for tag in tags:
             lines.append(f"  - {tag}")
-    if args.read_time:
-        lines.append(f"read_time: {args.read_time}")
-    lines.append("key_takeaways: |")
-    lines.append("  - TODO")
-    lines.append("further_reading: |")
-    lines.append("  - TODO")
+    else:
+        lines.append("paper_tags:")
+        lines.append("  - TODO")
     lines.append("---")
     return "\n".join(lines)
 
@@ -87,26 +81,37 @@ def build_front_matter(args: argparse.Namespace, date: dt.date, slug: str) -> st
 def build_body() -> str:
     return dedent(
         """
-        ## Why this paper
+        ## Main concept
 
-        TODO: Add the motivation for reading the paper and the main problem it solves.
+        TODO
 
-        ## Model or method
+        ## Main advantages
 
-        TODO: Summarize the core idea, architecture, or algorithmic steps.
+        TODO
 
-        ## Results
+        ## Experiments results
 
-        TODO: Capture the headline results or metrics you care about.
+        TODO
 
-        ## Questions to revisit
+        ## Practical model application
 
-        1. TODO
-        2. TODO
+        TODO
 
-        ## Implementation notes
+        ## technical details
 
-        TODO: Document training tricks, hyperparameters, or pitfalls to remember.
+        TODO
+
+        ## Limitations
+
+        TODO
+
+        ## Future Directions
+
+        TODO
+
+        ## Overview
+
+        TODO
         """
     ).strip() + "\n"
 
