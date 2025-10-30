@@ -6,7 +6,6 @@ layout: default
     <h1>{{ page.title }}</h1>
     <p class="post-meta">
       <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
-      {% if page.read_time %} &middot; {{ page.read_time }} min read{% endif %}
     </p>
     <div class="paper-summary">
       {% if page.paper_title %}
@@ -21,18 +20,14 @@ layout: default
         {% if page.paper_year %} ({{ page.paper_year }}){% endif %}
       </p>
       {% endif %}
-      {% assign links = '' | split: ',' %}
       {% if page.paper_link %}
-        {% assign links = links | push: '<a href="' | append: page.paper_link | append: '">Paper</a>' %}
+      <p><span>Paper link:</span> <a href="{{ page.paper_link }}">Paper</a></p>
       {% endif %}
       {% if page.paper_pdf %}
-        {% assign links = links | push: '<a href="' | append: page.paper_pdf | append: '">PDF</a>' %}
+      <p><span>PDF:</span> <a href="{{ page.paper_pdf }}">PDF</a></p>
       {% endif %}
       {% if page.paper_code %}
-        {% assign links = links | push: '<a href="' | append: page.paper_code | append: '">Code</a>' %}
-      {% endif %}
-      {% if links.size > 0 %}
-      <p><span>Links:</span> {{ links | join: ' &middot; ' }}</p>
+      <p><span>Code:</span> <a href="{{ page.paper_code }}">Code</a></p>
       {% endif %}
       {% if page.paper_tags %}
       <p class="paper-tags"><span>Tags:</span>

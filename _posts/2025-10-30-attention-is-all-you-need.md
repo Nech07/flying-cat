@@ -10,13 +10,6 @@ paper_tags:
   - transformers
   - sequence-to-sequence
   - attention
-key_takeaways: |
-  - The Transformer discards recurrence in favor of stacked self-attention blocks that scale well on modern hardware.
-  - Multi-head attention lets the model jointly attend to information from different representation subspaces.
-  - Positional encodings inject order without recurrence, enabling parallel training and efficient long-range modeling.
-  - Label smoothing and residual connections play an outsize role in stabilizing deep attention stacks.
-  - Transformer achieves state-of-the-art machine translation with significantly less training cost than RNN counterparts.
-read_time: 6
 ---
 
 ## Main concept
