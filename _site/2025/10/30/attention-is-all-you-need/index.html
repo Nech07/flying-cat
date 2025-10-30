@@ -3,44 +3,44 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Attention Is All You Need -- Paper Notes | Paper Notes</title>
-  <meta name="description" content="Why this paper">
+  <title>Attention Is All You Need | Paper Notes</title>
+  <meta name="description" content="Main concept">
   <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Attention Is All You Need – Paper Notes | Paper Notes</title>
+<title>Attention Is All You Need | Paper Notes</title>
 <meta name="generator" content="Jekyll v3.10.0" />
-<meta property="og:title" content="Attention Is All You Need – Paper Notes" />
+<meta property="og:title" content="Attention Is All You Need" />
 <meta name="author" content="nech" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Why this paper" />
-<meta property="og:description" content="Why this paper" />
-<link rel="canonical" href="http://localhost:4000/blog/2025/10/30/attention-is-all-you-need/" />
-<meta property="og:url" content="http://localhost:4000/blog/2025/10/30/attention-is-all-you-need/" />
+<meta name="description" content="Main concept" />
+<meta property="og:description" content="Main concept" />
+<link rel="canonical" href="http://localhost:4000/flying-cat/2025/10/30/attention-is-all-you-need/" />
+<meta property="og:url" content="http://localhost:4000/flying-cat/2025/10/30/attention-is-all-you-need/" />
 <meta property="og:site_name" content="Paper Notes" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2025-10-30T00:00:00-04:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Attention Is All You Need – Paper Notes" />
+<meta property="twitter:title" content="Attention Is All You Need" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"nech"},"dateModified":"2025-10-30T00:00:00-04:00","datePublished":"2025-10-30T00:00:00-04:00","description":"Why this paper","headline":"Attention Is All You Need – Paper Notes","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/2025/10/30/attention-is-all-you-need/"},"url":"http://localhost:4000/blog/2025/10/30/attention-is-all-you-need/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"nech"},"dateModified":"2025-10-30T00:00:00-04:00","datePublished":"2025-10-30T00:00:00-04:00","description":"Main concept","headline":"Attention Is All You Need","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/flying-cat/2025/10/30/attention-is-all-you-need/"},"url":"http://localhost:4000/flying-cat/2025/10/30/attention-is-all-you-need/"}</script>
 <!-- End Jekyll SEO tag -->
 
-  <link rel="stylesheet" href="/blog/assets/css/style.css">
+  <link rel="stylesheet" href="/flying-cat/assets/css/style.css">
 </head>
 <body>
   <header class="site-header">
     <div class="container">
-      <a class="site-title" href="/blog/">Papers</a>
+      <a class="site-title" href="/flying-cat/">Papers</a>
       <p class="site-subtitle">Summaries and takeaways from research papers I read.</p>
       
       <nav class="site-nav" aria-label="Primary navigation">
         <ul>
           
           <li>
-            <a href="/blog/" >Home</a>
+            <a href="/flying-cat/flying-cat" >Home</a>
           </li>
           
           <li>
-            <a href="/blog/about/" >About</a>
+            <a href="/flying-cat/about/" >About</a>
           </li>
           
         </ul>
@@ -51,10 +51,9 @@
   <main class="site-content container">
     <article class="post">
   <header class="post-header">
-    <h1>Attention Is All You Need -- Paper Notes</h1>
+    <h1>Attention Is All You Need</h1>
     <p class="post-meta">
       <time datetime="2025-10-30T00:00:00-04:00">October 30, 2025</time>
-       &middot; 6 min read
     </p>
     <div class="paper-summary">
       
@@ -70,11 +69,11 @@
       </p>
       
       
+      <p><span>Paper link:</span> <a href="https://arxiv.org/abs/1706.03762">Paper</a></p>
       
       
       
-      
-      <p><span>Links:</span> ["<a href=\""]https://arxiv.org/abs/1706.03762">Paper</a>https://arxiv.org/pdf/1706.03762.pdf">PDF</a>https://github.com/tensorflow/tensor2tensor">Code</a></p>
+      <p><span>Code:</span> <a href="https://github.com/jadore801120/attention-is-all-you-need-pytorch">Code</a></p>
       
       
       <p class="paper-tags"><span>Tags:</span>
@@ -91,78 +90,31 @@
   </header>
 
   
-  <section class="callout">
-    <h2>Key Takeaways</h2>
-    <ul>
-  <li>The Transformer discards recurrence in favor of stacked self-attention blocks that scale well on modern hardware.</li>
-  <li>Multi-head attention lets the model jointly attend to information from different representation subspaces.</li>
-  <li>Positional encodings inject order without recurrence, enabling parallel training and efficient long-range modeling.</li>
-  <li>Label smoothing and residual connections play an outsize role in stabilizing deep attention stacks.</li>
-  <li>Transformer achieves state-of-the-art machine translation with significantly less training cost than RNN counterparts.</li>
-</ul>
-
-  </section>
-  
 
   <section class="post-content">
-    <h2 id="why-this-paper">Why this paper</h2>
+    <h2 id="main-concept">Main concept</h2>
 
-<p>Transformers define the modern baseline for sequence transduction tasks. Re-reading the original paper helps anchor later architectural tweaks–especially when evaluating claims about scaling behaviour or inductive bias.</p>
+<h2 id="main-advantages">Main advantages</h2>
 
-<h2 id="model-core">Model core</h2>
+<h2 id="experiments-results">Experiments results</h2>
 
-<p>Each encoder layer alternates multi-head self-attention with a position-wise feed-forward network. LayerNorm and residual connections wrap both sub-layers, enforcing stable gradients through depth. The decoder mirrors this structure but introduces causal masking and encoder-decoder attention so generated tokens can condition on the source sequence.</p>
+<h2 id="practical-model-application">Practical model application</h2>
 
-<h2 id="training-recipe">Training recipe</h2>
+<h2 id="technical-details">technical details</h2>
 
-<ul>
-  <li>Datasets: WMT 2014 English&lt;-&gt;French and English&lt;-&gt;German.</li>
-  <li>Tokenization: 37k BPE merges with shared vocabulary.</li>
-  <li>Optimization: Adam with warm-up (4,000 steps) and inverse-square-root decay; label smoothing epsilon = 0.1.</li>
-  <li>Regularization: Dropout at 0.1 applied to attention weights and residual paths.</li>
-</ul>
+<h2 id="limitations">Limitations</h2>
 
-<p>The parallel nature of self-attention enabled training on eight P100 GPUs in 3.5 days–already competitive with heavily optimized RNN systems at the time.</p>
+<h2 id="future-directions">Future Directions</h2>
 
-<h2 id="results-snapshot">Results snapshot</h2>
-
-<p>Translation quality improved BLEU by 2-3 points over GNMT while using significantly fewer FLOPs. Performance gains held across both translation directions, highlighting the architecture’s generality.</p>
-
-<h2 id="open-questions-for-replication">Open questions for replication</h2>
-
-<ol>
-  <li>How do modern optimizers (Lion, AdaFactor) shift convergence speed on today’s hardware?</li>
-  <li>Does rotary positional encoding (RoPE) plug into the original architecture cleanly, or are there edge cases for decoding length generalization?</li>
-  <li>What training efficiency gains remain when switching to multiquery or grouped-query attention?</li>
-</ol>
-
-<h2 id="implementation-notes">Implementation notes</h2>
-
-<ul>
-  <li>Weight initialization: Xavier uniform in all linear layers.</li>
-  <li>Scaling factors: attention logits scaled by 1/sqrt(d_k).</li>
-  <li>Beam search: width 4 or 6 with length penalty alpha = 0.6 performed best on validation BLEU.</li>
-</ul>
-
-<p>Capturing these details ensures reproducibility when benchmarking new architectural tweaks against the classic Transformer baseline.</p>
+<h2 id="overview">Overview</h2>
 
   </section>
 
-  
-  <section class="post-footer">
-    <h2>Further Reading</h2>
-    <ul>
-  <li><a href="http://nlp.seas.harvard.edu/annotated-transformer/">The Annotated Transformer</a></li>
-  <li><a href="https://arxiv.org/abs/2002.09202">Transformer Feed-Forward Networks are Key-Value Memories</a></li>
-  <li><a href="https://arxiv.org/abs/2005.14165">Scaling Transformer to 8.1B parameters – GPT-3</a></li>
-</ul>
-
-  </section>
   
 </article>
 
 
-<p class="nav-back"><a href="/blog/">&larr; Back to all notes</a></p>
+<p class="nav-back"><a href="/flying-cat/">&larr; Back to all notes</a></p>
 
 
   </main>
