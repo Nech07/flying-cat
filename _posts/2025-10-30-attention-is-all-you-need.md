@@ -19,37 +19,18 @@ key_takeaways: |
 read_time: 6
 ---
 
-## Why this paper
+## Main concept
 
-Transformers define the modern baseline for sequence transduction tasks. Re-reading the original paper helps anchor later architectural tweaks--especially when evaluating claims about scaling behaviour or inductive bias.
+## Main advantages
 
-## Model core
+## Experiments results
 
-Each encoder layer alternates multi-head self-attention with a position-wise feed-forward network. LayerNorm and residual connections wrap both sub-layers, enforcing stable gradients through depth. The decoder mirrors this structure but introduces causal masking and encoder-decoder attention so generated tokens can condition on the source sequence.
+## Practical model application
 
-## Training recipe
+## technical details
 
-- Datasets: WMT 2014 English<->French and English<->German.
-- Tokenization: 37k BPE merges with shared vocabulary.
-- Optimization: Adam with warm-up (4,000 steps) and inverse-square-root decay; label smoothing epsilon = 0.1.
-- Regularization: Dropout at 0.1 applied to attention weights and residual paths.
+## Limitations
 
-The parallel nature of self-attention enabled training on eight P100 GPUs in 3.5 days--already competitive with heavily optimized RNN systems at the time.
+## Future Directions
 
-## Results snapshot
-
-Translation quality improved BLEU by 2-3 points over GNMT while using significantly fewer FLOPs. Performance gains held across both translation directions, highlighting the architecture's generality.
-
-## Open questions for replication
-
-1. How do modern optimizers (Lion, AdaFactor) shift convergence speed on today's hardware?
-2. Does rotary positional encoding (RoPE) plug into the original architecture cleanly, or are there edge cases for decoding length generalization?
-3. What training efficiency gains remain when switching to multiquery or grouped-query attention?
-
-## Implementation notes
-
-- Weight initialization: Xavier uniform in all linear layers.
-- Scaling factors: attention logits scaled by 1/sqrt(d_k).
-- Beam search: width 4 or 6 with length penalty alpha = 0.6 performed best on validation BLEU.
-
-Capturing these details ensures reproducibility when benchmarking new architectural tweaks against the classic Transformer baseline.
+## Overview
