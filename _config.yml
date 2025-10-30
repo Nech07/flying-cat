@@ -42,6 +42,6 @@ exclude:
   - vendor
 nav_links:
   - title: Home
-    url: /flying-cat
+    url: /
   - title: About
     url: /about/
