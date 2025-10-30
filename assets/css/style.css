@@ -93,7 +93,7 @@ a:focus {
 }
 
 .site-content {
-  padding: 3rem 0 4rem;
+  padding: 3rem 0 3rem;
 }
 
 .intro {
@@ -143,9 +143,10 @@ a:focus {
 }
 
 .post-card__summary {
-  margin: 1rem 0 0;
+  margin: 0.75rem 0 0;
   color: var(--text-muted);
   font-size: 0.95rem;
+  min-height: 2rem;
 }
 
 .post-card__tags {

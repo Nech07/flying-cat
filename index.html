@@ -21,6 +21,7 @@ title: Latest Notes
           <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
           {% if post.paper_venue %} &middot; {{ post.paper_venue }}{% endif %}
         </p>
+        <div class="post-card__summary" aria-hidden="true"></div>
       </a>
     </article>
   {% endfor %}
