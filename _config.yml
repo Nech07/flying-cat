@@ -7,8 +7,8 @@ author:
   email: 
 language: en-US
 timezone: America/New_York
-url: https://<username>.github.io
-baseurl: "/blog"
+url: ""
+baseurl: ""
 permalink: "/:year/:month/:day/:title/"
 markdown: kramdown
 kramdown:

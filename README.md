@@ -4,7 +4,7 @@ A lightweight Jekyll site for summarizing research papers and hosting the notes 
 
 ## Getting started
 
-1. **Set the site URL.** Edit `_config.yml` and replace `https://<username>.github.io` with your GitHub Pages domain. If the repository lives at the root of your pages site, change `baseurl: "/blog"` to an empty string.
+1. **Set the site URL.** Edit `_config.yml` and set `url` to your real domain (for example `https://yourname.github.io`). If the repo name is not `<username>.github.io`, set `baseurl` to `"/<repo>"`; otherwise leave it blank.
 2. **Install Jekyll locally (optional).**
    ```bash
    gem install bundler
@@ -72,7 +72,7 @@ blog/
 1. Create a public repository (for example `paper-notes`).
 2. Copy the contents of this `blog` directory into the root of that repository.
 3. Push to GitHub and enable Pages under **Settings -> Pages**, choosing the `main` branch and `/ (root)` folder.
-4. After Pages builds, your notes will be live at `https://<username>.github.io` or `https://<username>.github.io/<repo>` depending on your configuration.
+4. After Pages builds, your notes will be live at `https://<username>.github.io` (user/org site) or `https://<username>.github.io/<repo>` (project site), matching how you set `url` and `baseurl`.
 
 ## Next steps
 
