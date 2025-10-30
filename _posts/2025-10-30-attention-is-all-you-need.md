@@ -1,5 +1,5 @@
 ---
-title: "Attention Is All You Need -- Paper Notes"
+title: "Attention Is All You Need"
 paper_title: "Attention Is All You Need"
 paper_authors: "Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, Illia Polosukhin"
 paper_venue: "NeurIPS"
