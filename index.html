@@ -4,7 +4,7 @@ title: Latest Notes
 ---
 <section class="intro">
   <h1>{{ site.title }}</h1>
-  <p>{{ site.description }}</p>
+  <p>Paper notes by <a href="https://x.com/Nechintosh">Nechintosh</a>.</p>
 </section>
 
 <section class="post-grid" aria-label="Paper summaries">
@@ -20,22 +20,7 @@ title: Latest Notes
         <p class="post-card__meta">
           <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
           {% if post.paper_venue %} &middot; {{ post.paper_venue }}{% endif %}
-          {% if post.paper_year and post.paper_year != published_year %} &middot; {{ post.paper_year }}{% endif %}
         </p>
-        {% if post.key_takeaways %}
-        <div class="post-card__summary">
-          {{ post.key_takeaways | markdownify | strip_html | truncate: 140 }}
-        </div>
-        {% elsif post.excerpt %}
-        <p class="post-card__summary">{{ post.excerpt | strip_html | truncate: 140 }}</p>
-        {% endif %}
-        {% if post.paper_tags %}
-        <p class="post-card__tags">
-          {% for tag in post.paper_tags %}
-            <span class="tag">{{ tag }}</span>
-          {% endfor %}
-        </p>
-        {% endif %}
       </a>
     </article>
   {% endfor %}
