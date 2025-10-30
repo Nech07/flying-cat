@@ -17,10 +17,6 @@ key_takeaways: |
   - Positional encodings inject order without recurrence, enabling parallel training and efficient long-range modeling.
   - Label smoothing and residual connections play an outsize role in stabilizing deep attention stacks.
   - Transformer achieves state-of-the-art machine translation with significantly less training cost than RNN counterparts.
-further_reading: |
-  - [The Annotated Transformer](http://nlp.seas.harvard.edu/annotated-transformer/)
-  - [Transformer Feed-Forward Networks are Key-Value Memories](https://arxiv.org/abs/2002.09202)
-  - [Scaling Transformer to 8.1B parameters -- GPT-3](https://arxiv.org/abs/2005.14165)
 read_time: 6
 ---
 
